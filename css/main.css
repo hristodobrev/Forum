@@ -67,6 +67,10 @@ body #wrapper #content {
     float: left;
 }
 
+body #wrapper #content #main-content section {
+    display: none;
+}
+
 body #wrapper #content #main-content .article {
     border-bottom: 1px solid #d3d3d3;
     padding: 1em;
