@@ -1,0 +1,23 @@
+- Home View
+  - Forum Articles
+
+- Login View
+  - Login Form
+  - Register Link
+
+- Register View
+  - Register Form
+  - Login Link
+
+- Add New Article View
+  - New Article Form
+  - List All Articles Link
+
+- Delete Article View
+  - Confirm Form
+
+- Edit Article View
+  - Edit Article Form
+
+- Article Details View
+  - Add New Answer Field
