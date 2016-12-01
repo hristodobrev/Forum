@@ -1,2 +1,1 @@
-# Forum
-JS Apps Forum Team Work Project
+This is our Forum Teamwork Project!
