@@ -1,0 +1,28 @@
+header {
+    width: 100%;
+    color: white;
+    background: #555;
+    border-bottom: 1px solid #000;
+    text-align: center;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+header nav ul li {
+    display: inline-block;
+}
+
+header nav ul li a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+header nav ul li a:hover {
+    background: #333;
+}

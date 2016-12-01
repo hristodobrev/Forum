@@ -1,13 +1,19 @@
-- Home View
+- Home View [Checked]
   - Forum Articles
 
-- Login View
-  - Login Form
+  - Forum Articles Request
+
+- Login View [Checked]
+  - Login Form [Checked]
   - Register Link
 
-- Register View
-  - Register Form
+  - Login Request
+
+- Register View [Checked]
+  - Register Form [Checked]
   - Login Link
+
+  - Register Request
 
 - Add New Article View
   - New Article Form
@@ -21,3 +27,5 @@
 
 - Article Details View
   - Add New Answer Field
+
+- User Details View
