@@ -1,31 +1,42 @@
 - Home View [Checked]
-  - Forum Articles
 
-  - Forum Articles Request
 
 - Login View [Checked]
   - Login Form [Checked]
-  - Register Link
+  - Register Link [Checked]
 
-  - Login Request
+  - Login Request [TODO]
 
 - Register View [Checked]
   - Register Form [Checked]
-  - Login Link
+  - Login Link [Checked]
 
-  - Register Request
+  - Register Request [TODO]
+
+
+- Articles View
+  - List Forum Articles
+
+  - Forum Articles Request
+
+- Article Details View
+  - Add New Answer Field
 
 - Add New Article View
   - New Article Form
   - List All Articles Link
 
+  - Post Article Request
+
 - Delete Article View
   - Confirm Form
+
+  - Delete Article Request
 
 - Edit Article View
   - Edit Article Form
 
-- Article Details View
-  - Add New Answer Field
+  - Edit Article Request
+
 
 - User Details View

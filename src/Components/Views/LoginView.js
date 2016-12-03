@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router';
 
 class LoginView extends Component {
     render() {
@@ -28,6 +29,7 @@ class LoginView extends Component {
                     </div>
                     <input className="btn btn-default" type="submit" value="Login"/>
                 </form>
+                <p>Doesn't have an account? You can go to the <Link to="register">Register</Link> page</p>
             </section>
         );
     }
