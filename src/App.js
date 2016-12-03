@@ -1,84 +1,48 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
+import {Link} from 'react-router';
 
-import HomeView from './Views/HomeView';
-import LoginView from './Views/LoginView';
-import RegisterView from './Views/RegisterView';
-
-import Header from './Components/Header';
-import Footer from './Components/Footer';
-
-import KinveyRequester from './KinveyRequester';
-
-import $ from 'jquery';
+import Navbar from './Components/Common/Navbar';
+import Header from './Components/Common/Header';
 
 import './App.css';
 
 class App extends Component {
-    render() {
-        return (
-            <div className="app">
-                <Header
-                    showHomeView={this.showHomeView.bind(this)}
-                    showLoginView={this.showLoginView.bind(this)}
-                    showRegisterView={this.showRegisterView.bind(this)}
-                />
-                <div id="loadingBox">Loading</div>
-                <div id="infoBox">Info</div>
-                <div id="errorBox">Error</div>
-                <main id="main">
-                </main>
-                <Footer />
-            </div>
-        );
-    }
-
-    // Views Functions
-
-    showView(view) {
-        ReactDOM.render(
-            view,
-            document.getElementById('main')
-        );
-    }
-
-    showHomeView() {
-        this.showView(
-            <HomeView />
-        );
-    }
-
-    showLoginView() {
-        this.showView(
-            <LoginView loginSubmit={this.loginSubmit.bind(this)} />
-        );
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoggedIn: false,
+            username: ''
+        };
     }
     
-    showRegisterView() {
-        this.showView(
-            <RegisterView registerSubmit={this.registerSubmit.bind(this)} />
-        );
-    }
-
-    // Notification Functions
-
-    showInfo(msg) {
-        $('#infoBox').text(msg).fadeIn();
-    }
-
-    // Request Functions
-
-    loginSubmit(username, password) {
-        KinveyRequester.login(username, password)
-            .then(loginSuccessful.bind(this));
-
-        function loginSuccessful(data) {
-            this.showInfo('Login Successful');
+    render() {
+        let navbar;
+        
+        if(!this.state.isLoggedIn) {
+            navbar = (
+                <Navbar>
+                    <Link to="/" >Home</Link>
+                    <Link to="/login" >Login</Link>
+                    <Link to="/register" >Register</Link>
+                </Navbar>
+            );
+        } else {
+            navbar = (
+                <Navbar>
+                    <Link to="/" >Home</Link>
+                    <Link to="/logout" >Logout</Link>
+                </Navbar>
+            );
         }
-    }
 
-    registerSubmit(username, password) {
-        console.log('Register in with: ' + username + ', ' + password);
+        return (
+            <div className="container">
+                <Header isLoggedIn={this.state.isLoggedIn} username={this.state.username}>
+                    {navbar}
+                </Header>
+                {this.props.children}
+            </div>
+        );
     }
 }
 
