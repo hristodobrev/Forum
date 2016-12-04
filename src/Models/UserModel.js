@@ -1,7 +1,9 @@
 import KinveyRequester from '../Services/KinveyRequester';
 
 class UserModel {
+
     login(username, password) {
+      
         let data = {
             username,
             password
@@ -11,6 +13,7 @@ class UserModel {
     }
 
     register(username, password) {
+
         let data = {
             username,
             password
@@ -18,7 +21,7 @@ class UserModel {
 
         return KinveyRequester.post('user', '', data);
     }
-    
+
     logout(authToken) {
         return KinveyRequester.logout(authToken);
     }

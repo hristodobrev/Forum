@@ -29,6 +29,7 @@ class RegisterView extends Component {
                     </div>
                     <input className="btn btn-default" type="submit" value="Register"/>
                 </form>
+                <br/>
                 <p>Already have an account? You can go to the <Link to="login">Login</Link> page</p>
             </section>
         );

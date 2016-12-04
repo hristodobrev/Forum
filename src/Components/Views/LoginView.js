@@ -29,6 +29,7 @@ class LoginView extends Component {
                     </div>
                     <input className="btn btn-default" type="submit" value="Login"/>
                 </form>
+                <br/>
                 <p>Doesn't have an account? You can go to the <Link to="register">Register</Link> page</p>
             </section>
         );

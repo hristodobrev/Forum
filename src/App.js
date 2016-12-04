@@ -5,6 +5,7 @@ import Navbar from './Components/Common/Navbar';
 import Header from './Components/Common/Header';
 
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends Component {
     constructor(props) {
@@ -13,24 +14,27 @@ class App extends Component {
             isLoggedIn: false,
             username: ''
         };
+        console.log(this.state);
     }
-    
+
     render() {
         let navbar;
-        
+
         if(!this.state.isLoggedIn) {
             navbar = (
                 <Navbar>
-                    <Link to="/" >Home</Link>
-                    <Link to="/login" >Login</Link>
-                    <Link to="/register" >Register</Link>
+                    <Link to="/">Home</Link>
+                    <Link to="/login">Login</Link>
+                    <Link to="/register">Register</Link>
                 </Navbar>
             );
         } else {
             navbar = (
                 <Navbar>
-                    <Link to="/" >Home</Link>
-                    <Link to="/logout" >Logout</Link>
+                    <Link to="/">Home</Link>
+                    <Link to="/acticle/new">New Topic</Link>
+                    <Link to="/article/all">All Topics</Link>
+                    <Link to="/logout">Logout</Link>
                 </Navbar>
             );
         }
