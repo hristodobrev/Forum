@@ -10,9 +10,10 @@ class ArticleController extends Component {
         this.answerModel = new AnswerModel();
 
         this.state = {
-            articles: [],
-            answers: []
+            articles: []
         };
+
+        this.getAllArticles();
     }
 
     getAllArticles() {
@@ -20,22 +21,17 @@ class ArticleController extends Component {
 
         KinveyRequester.get("appdata", "articles")
         .then(function (articlesData) {
-            _self.answerModel.getAllAnswers()
-                .then(function (answerData) {
-                    _self.setState({
-                        articles: articlesData,
-                        answers: answerData
-                    });
-                });
+            _self.setState({
+                articles: articlesData
+            });
+        })
+        .catch(function (err) {
+            console.log(err);
         });
     }
 
-    getAritcleById(id) {
-
-    }
-
     render() {
-        return <ArticleView articles={this.state.articles} answers={this.state.answers}/>
+        return <ArticleView articles={this.state.articles}/>
     }
 }
 

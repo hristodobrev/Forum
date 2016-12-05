@@ -19,7 +19,7 @@
 
   - Forum Articles Request [Checked]
 
-- Article Details View
+- Article Details View [Checked]
   - Add New Answer Field
 
 - Add New Article View
