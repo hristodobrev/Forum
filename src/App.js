@@ -6,6 +6,8 @@ import Header from './Components/Common/Header';
 
 import './App.css';
 
+
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -42,7 +44,7 @@ class App extends Component {
                 </Header>
                 {this.props.children}
             </div>
-        );
+       );
     }
 }
 

@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import $ from "jquery";
 
 const KinveyRequester = (function () {
     const baseUrl = 'https://baas.kinvey.com/';

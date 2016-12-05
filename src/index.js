@@ -10,6 +10,7 @@ import Home from './Components/Controllers/HomeController';
 import Login from './Components/Controllers/LoginController';
 import Register from './Components/Controllers/RegisterController';
 
+
 ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={App}>
