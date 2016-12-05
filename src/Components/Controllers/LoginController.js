@@ -2,10 +2,13 @@ import React, {Component} from 'react';
 import LoginView from '../Views/LoginView';
 import UserModel from '../../Models/UserModel';
 
+import observer from '../../Utilities/observer';
+
 class LoginPage extends Component {
     static contextTypes = {
         router: React.PropTypes.object.isRequired
-    }
+    };
+
     constructor(props) {
         super(props);
 
@@ -30,9 +33,13 @@ class LoginPage extends Component {
         });
 
         function loginSuccess(data) {
-            console.log('Signed in');
+            sessionStorage.setItem('username', data.username);
+            sessionStorage.setItem('authToken', data._kmd.authtoken);
+            sessionStorage.setItem('userId', data._id);
+
+            observer.onSessionUpdate();
+
             this.context.router.push('/article/all'); // Redirect to the articles page
-            console.log(this.props);
         }
     }
 

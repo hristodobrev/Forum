@@ -5,19 +5,19 @@
   - Login Form [Checked]
   - Register Link [Checked]
 
-  - Login Request [TODO]
+  - Login Request [Checked]
 
 - Register View [Checked]
   - Register Form [Checked]
   - Login Link [Checked]
 
-  - Register Request [TODO]
+  - Register Request [Checked]
 
 
-- Articles View
-  - List Forum Articles
+- Articles View [Checked]
+  - List Forum Articles [Checked]
 
-  - Forum Articles Request
+  - Forum Articles Request [Checked]
 
 - Article Details View
   - Add New Answer Field

@@ -10,6 +10,7 @@ import Home from './Components/Controllers/HomeController';
 import Login from './Components/Controllers/LoginController';
 import Register from './Components/Controllers/RegisterController';
 import Article from './Components/Controllers/ArticleController';
+import Logout from './Components/Controllers/LogoutController';
 
 ReactDOM.render(
     <Router history={browserHistory}>
@@ -20,6 +21,7 @@ ReactDOM.render(
             <Route path="article/all" component={Article} />
             <Route path="article/new" component={Article} />
             <Route path="article/:articleID" component={Article} />
+            <Route path="logout" component={Logout} />
         </Route>
     </Router>,
     document.getElementById('wrapper')
