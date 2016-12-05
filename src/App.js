@@ -4,7 +4,10 @@ import {Link} from 'react-router';
 import Navbar from './Components/Common/Navbar';
 import Header from './Components/Common/Header';
 
+import observer from './Utilities/observer';
+
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 
@@ -15,24 +18,45 @@ class App extends Component {
             isLoggedIn: false,
             username: ''
         };
+        observer.onSessionUpdate = this.onSessionUpdate.bind(this);
     }
-    
+
+    componentDidMount() {
+        this.onSessionUpdate();
+    }
+
+    onSessionUpdate() {
+        if(sessionStorage.getItem('authToken')) {
+            this.setState({
+                isLoggedIn: true,
+                username: sessionStorage.getItem('username')
+            });
+        } else {
+            this.setState({
+                isLoggedIn: false,
+                username: ''
+            });
+        }
+    }
+
     render() {
         let navbar;
-        
+
         if(!this.state.isLoggedIn) {
             navbar = (
                 <Navbar>
-                    <Link to="/" >Home</Link>
-                    <Link to="/login" >Login</Link>
-                    <Link to="/register" >Register</Link>
+                    <Link to="/" className="btn btn-default">Home</Link>
+                    <Link to="/login" className="btn btn-default">Login</Link>
+                    <Link to="/register" className="btn btn-default">Register</Link>
                 </Navbar>
             );
         } else {
             navbar = (
                 <Navbar>
-                    <Link to="/" >Home</Link>
-                    <Link to="/logout" >Logout</Link>
+                    <Link to="/" className="btn btn-default">Home</Link>
+                    <Link to="/article/new" className="btn btn-default">New Topic</Link>
+                    <Link to="/article/all" className="btn btn-default">All Topics</Link>
+                    <Link to="/logout" className="btn btn-default">Logout</Link>
                 </Navbar>
             );
         }

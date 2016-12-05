@@ -1,0 +1,28 @@
+Tables
+    - articles
+    - answers
+
+| ================================== |
+|              articles              |
+| ================================== |
+| _id  | title | date_created | user |
+
+
+| ============================================== |
+|                    answers                     |
+| ============================================== |
+| _id  | article_id | date_created | text | user |
+
+
+{
+	"article_id": "583450d5502ea22b527b02df",
+	"date_created": "Malko po-kusno",
+	"text": "And the second one for Test Article!",
+	"user": "guest"
+}
+
+{
+	"date_created": "5.12.2016",
+	"title": "Second Article!",
+	"user": "guest"
+}

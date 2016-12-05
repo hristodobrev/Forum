@@ -2,7 +2,13 @@ import React, {Component} from 'react';
 import LoginView from '../Views/LoginView';
 import UserModel from '../../Models/UserModel';
 
+import observer from '../../Utilities/observer';
+
 class LoginPage extends Component {
+    static contextTypes = {
+        router: React.PropTypes.object.isRequired
+    };
+
     constructor(props) {
         super(props);
 
@@ -21,13 +27,19 @@ class LoginPage extends Component {
         event.preventDefault();
 
         this.model.login(this.state.username, this.state.password)
-            .then(loginSuccess)
-            .catch(function (err) {
-                console.log(err);
-            });
+        .then(loginSuccess.bind(this))
+        .catch(function (err) {
+            console.log(err);
+        });
 
         function loginSuccess(data) {
-            console.log('Logged in successful');
+            sessionStorage.setItem('username', data.username);
+            sessionStorage.setItem('authToken', data._kmd.authtoken);
+            sessionStorage.setItem('userId', data._id);
+
+            observer.onSessionUpdate();
+
+            this.context.router.push('/article/all'); // Redirect to the articles page
         }
     }
 
@@ -39,10 +51,10 @@ class LoginPage extends Component {
 
     render() {
         return <LoginView
-            onSubmit={this.login}
-            onChange={this.onChange}
-            username={this.state.username}
-            password={this.state.password}
+        onSubmit={this.login}
+        onChange={this.onChange}
+        username={this.state.username}
+        password={this.state.password}
         />
     }
 }

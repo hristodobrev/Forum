@@ -1,11 +1,13 @@
 import $ from "jquery";
 
 const KinveyRequester = (function () {
+
     const baseUrl = 'https://baas.kinvey.com/';
     const appKey = 'kid_H1DHe6bzg';
     const appSecret = 'd1e7f89e0cf141bf82352f52f57cbd9d';
 
-    function getRequest(url) {
+    function getRequest(model, uri) {
+        let url = baseUrl + model + '/' + appKey + '/' + uri;
         return _makeRequest('GET', url);
     }
 
@@ -23,9 +25,10 @@ const KinveyRequester = (function () {
     }
 
     function logoutRequest(authToken) {
+        let url = baseUrl + 'user/' + appKey + '/_logout';
         return $.ajax({
             method: 'POST',
-            url: this.baseUrl + 'user/' + this.appKey + '/_logout',
+            url: url,
             headers: {
                 'Authorization': 'Kinvey ' + authToken
             }
