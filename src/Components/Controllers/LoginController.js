@@ -36,9 +36,7 @@ class LoginPage extends Component {
             sessionStorage.setItem('username', data.username);
             sessionStorage.setItem('authToken', data._kmd.authtoken);
             sessionStorage.setItem('userId', data._id);
-
             observer.onSessionUpdate();
-
             this.context.router.push('/article/all'); // Redirect to the articles page
         }
     }

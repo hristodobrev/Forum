@@ -1,7 +1,22 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
+import AnswerView from './AnswerView';
 
 class ArticleDetailsView extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            childVisible: false
+        };
+    }
+
+    onClick() {
+        this.setState({
+            childVisible: !this.state.childVisible
+        });
+    }
+
 
     render() {
         let answersList = this.props.answers.map((a) => {
@@ -18,7 +33,6 @@ class ArticleDetailsView extends Component {
             answersList = <p>No Answers</p>
         }
 
-
         return (
             <section>
                 <h1>{this.props.article.title}</h1>
@@ -26,10 +40,19 @@ class ArticleDetailsView extends Component {
                 <p>Created by: {this.props.article.user}</p>
                 <h2>Answers</h2>
                 <div className="answers">{answersList}</div>
+                <a className="add-answer btn btn-default" onClick={this.onClick.bind(this)}>Add Answer</a>
+                {
+                  this.state.childVisible
+                    ? <AnswerView
+                        onChange={this.props.onChange}
+                        onSubmit={this.props.onSubmit}
+                        text={this.props.text}
+                       />
+                    : null
+                }
             </section>
         );
     }
 }
 
 export default ArticleDetailsView;
-
