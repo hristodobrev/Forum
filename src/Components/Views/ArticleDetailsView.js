@@ -20,13 +20,27 @@ class ArticleDetailsView extends Component {
 
     render() {
         let answersList = this.props.answers.map((a) => {
-            return (
-                <div className="list-group answer" key={a._id}>
-                    <p className="list-group-item list-group-item-action">{a.text}</p>
-                    <p className="list-group-item list-group-item-action">Created By: {a.user}</p>
-                    <p className="list-group-item list-group-item-action">Date Created: {a.date_created}</p>
-                </div>
-            );
+            if (a.user == sessionStorage.getItem('username')) {
+                let link = `/answer/edit/${a._id}`;
+                return (
+                    <div className="list-group answer" key={a._id}>
+                        <p className="list-group-item list-group-item-action">{a.text}</p>
+                        <p className="list-group-item list-group-item-action">Created By: {a.user}</p>
+                        <p className="list-group-item list-group-item-action">
+                            Date Created: {a.date_created}
+                            <span className="right"><Link to={link}>Edit</Link></span>
+                        </p>
+                    </div>
+                );
+            } else {
+                return (
+                    <div className="list-group answer" key={a._id}>
+                        <p className="list-group-item list-group-item-action">{a.text}</p>
+                        <p className="list-group-item list-group-item-action">Created By: {a.user}</p>
+                        <p className="list-group-item list-group-item-action">Date Created: {a.date_created}</p>
+                    </div>
+                );
+            }
         });
 
         if (answersList.length === 0) {

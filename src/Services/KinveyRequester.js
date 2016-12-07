@@ -16,7 +16,8 @@ const KinveyRequester = (function () {
         return _makeRequest('POST', url, data);
     }
 
-    function putRequest(url, data) {
+    function putRequest(model, uri, data) {
+        let url = baseUrl + model + '/' + appKey + '/' + uri;
         return _makeRequest('PUT', url, data);
     }
 

@@ -15,7 +15,6 @@ class ArticleDetailsController extends Component {
             answers: [],
             user: sessionStorage.getItem('username'),
             article_id: this.props.params.articleID,
-            date_created: new Date(),
             text: '',
         };
 
@@ -26,22 +25,28 @@ class ArticleDetailsController extends Component {
     postAnswer(e) {
         e.preventDefault();
 
-
         let _self = this;
-        console.log('posting...');
-        KinveyRequester.post("appdata", "answers", _self.state)
-        .then(function (articlesData) {
-            console.log(articlesData);
+
+        let data = {
+            text: this.state.text,
+            date_created: new Date(),
+            user: this.state.user,
+            article_id: this.state.article_id
+        };
+
+        KinveyRequester.post("appdata", "answers", data)
+        .then(function (articleData) {
+            // console.log(articleData);
 
             $('.answers')
             .append(`
                 <div class="list-group answer">
-                    <p class="list-group-item list-group-item-action">${_self.state.text}</p>
+                    <p class="list-group-item list-group-item-action">${articleData.text}</p>
                     <p class="list-group-item list-group-item-action">
-                        Created By: ${_self.state.user}
+                        Created By: ${articleData.user}
                     </p>
                     <p class="list-group-item list-group-item-action">
-                        Date Created: ${_self.state.date_created}
+                        Date Created: ${articleData.date_created}
                     </p>
                 </div>
                 `);
@@ -77,7 +82,7 @@ class ArticleDetailsController extends Component {
 
         let newState = {};
         newState[event.target.name] = event.target.value;
-        console.log(newState);
+        //console.log(newState);
         this.setState(newState);
     }
 
