@@ -21,7 +21,8 @@ const KinveyRequester = (function () {
         return _makeRequest('PUT', url, data);
     }
 
-    function deleteRequest(url) {
+    function deleteRequest(model, uri) {
+        let url = baseUrl + model + '/' + appKey + '/' + uri;
         return _makeRequest('DELETE', url);
     }
 

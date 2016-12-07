@@ -22,21 +22,21 @@
 - Article Details View [Checked]
   - Add New Answer Field [Checked]
 
-- Add New Article View
-  - New Article Form
+- Add New Article View [Checked]
+  - New Article Form [Checked]
   - List All Articles Link
 
-  - Post Article Request
+  - Post Article Request [Checked]
 
-- Delete Article View
-  - Confirm Form
+- Delete Article View [Checked]
+  - Confirm Form [Checked]
 
-  - Delete Article Request
+  - Delete Article Request [Checked]
 
-- Edit Article View
-  - Edit Article Form
+- Edit Article View [Checked]
+  - Edit Article Form [Checked]
 
-  - Edit Article Request
+  - Edit Article Request [Checked]
 
 
 - User Details View

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 
-class AnswerNewView extends Component {
+class ArticleNewView extends Component {
 
     render() {
         return (
@@ -23,4 +23,4 @@ class AnswerNewView extends Component {
         );
     }
 }
-export default AnswerNewView;
+export default ArticleNewView;

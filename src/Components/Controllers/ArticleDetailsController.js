@@ -5,6 +5,10 @@ import AnswerModel from '../../Models/AnswerModel';
 import $ from 'jquery';
 
 class ArticleDetailsController extends Component {
+    static contextTypes = {
+        router: React.PropTypes.object.isRequired
+    };
+
     constructor(props) {
         super(props);
 
@@ -36,20 +40,7 @@ class ArticleDetailsController extends Component {
 
         KinveyRequester.post("appdata", "answers", data)
         .then(function (articleData) {
-
-            $('.answers')
-            .append(`
-                <div class="list-group answer">
-                    <p class="list-group-item list-group-item-action">${articleData.answerText}</p>
-                    <p class="list-group-item list-group-item-action">
-                        Created By: ${articleData.user}
-                    </p>
-                    <p class="list-group-item list-group-item-action">
-                        Date Created: ${articleData.date_created}
-                    </p>
-                </div>
-                `);
-
+            window.location.reload();
         })
         .catch(function (err) {
             console.log(err);

@@ -12,8 +12,10 @@ import Login from './Components/Controllers/LoginController';
 import Register from './Components/Controllers/RegisterController';
 import Article from './Components/Controllers/ArticleController';
 import ArticleDetails from './Components/Controllers/ArticleDetailsController';
+import ArticleDelete from './Components/Controllers/ArticleDeleteController';
 import ArticleNew from './Components/Controllers/ArticleNewController';
 import EditAnswer from './Components/Controllers/EditAnswerController';
+import DeleteAnswer from './Components/Controllers/DeleteAnswerController';
 import Logout from './Components/Controllers/LogoutController';
 
 ReactDOM.render(
@@ -25,7 +27,9 @@ ReactDOM.render(
             <Route path="article/all" component={Article} />
             <Route path="article/new" component={ArticleNew} />
             <Route path="article/:articleID" component={ArticleDetails} />
+            <Route path="article/delete/:articleId" component={ArticleDelete} />
             <Route path="answer/edit/:answerId" component={EditAnswer} />
+            <Route path="answer/delete/:answerId" component={DeleteAnswer} />
             <Route path="logout" component={Logout} />
         </Route>
     </Router>,
