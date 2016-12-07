@@ -15,7 +15,7 @@ class ArticleDetailsController extends Component {
             answers: [],
             user: sessionStorage.getItem('username'),
             article_id: this.props.params.articleID,
-            text: '',
+            answerText: ''
         };
 
         this.onChange = this.onChange.bind(this);
@@ -28,7 +28,7 @@ class ArticleDetailsController extends Component {
         let _self = this;
 
         let data = {
-            text: this.state.text,
+            answerText: this.state.answerText,
             date_created: new Date(),
             user: this.state.user,
             article_id: this.state.article_id
@@ -36,12 +36,11 @@ class ArticleDetailsController extends Component {
 
         KinveyRequester.post("appdata", "answers", data)
         .then(function (articleData) {
-            // console.log(articleData);
 
             $('.answers')
             .append(`
                 <div class="list-group answer">
-                    <p class="list-group-item list-group-item-action">${articleData.text}</p>
+                    <p class="list-group-item list-group-item-action">${articleData.answerText}</p>
                     <p class="list-group-item list-group-item-action">
                         Created By: ${articleData.user}
                     </p>
@@ -82,7 +81,6 @@ class ArticleDetailsController extends Component {
 
         let newState = {};
         newState[event.target.name] = event.target.value;
-        //console.log(newState);
         this.setState(newState);
     }
 
@@ -92,7 +90,7 @@ class ArticleDetailsController extends Component {
                 article={this.state.article}
                 answers={this.state.answers}
                 onChange={this.onChange}
-                text={this.state.text}
+                answerText={this.state.answerText}
                 />
     }
 }

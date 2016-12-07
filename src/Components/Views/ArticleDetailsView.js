@@ -24,7 +24,7 @@ class ArticleDetailsView extends Component {
                 let link = `/answer/edit/${a._id}`;
                 return (
                     <div className="list-group answer" key={a._id}>
-                        <p className="list-group-item list-group-item-action">{a.text}</p>
+                        <p className="list-group-item list-group-item-action">{a.answerText}</p>
                         <p className="list-group-item list-group-item-action">Created By: {a.user}</p>
                         <p className="list-group-item list-group-item-action">
                             Date Created: {a.date_created}
@@ -35,7 +35,7 @@ class ArticleDetailsView extends Component {
             } else {
                 return (
                     <div className="list-group answer" key={a._id}>
-                        <p className="list-group-item list-group-item-action">{a.text}</p>
+                        <p className="list-group-item list-group-item-action">{a.answerText}</p>
                         <p className="list-group-item list-group-item-action">Created By: {a.user}</p>
                         <p className="list-group-item list-group-item-action">Date Created: {a.date_created}</p>
                     </div>
@@ -50,6 +50,7 @@ class ArticleDetailsView extends Component {
         return (
             <section>
                 <h1>{this.props.article.title}</h1>
+                <p>{this.props.article.text}</p>
                 <p>Date Created: {this.props.article.date_created}</p>
                 <p>Created by: {this.props.article.user}</p>
                 <h2>Answers</h2>
@@ -60,7 +61,7 @@ class ArticleDetailsView extends Component {
                     ? <AnswerView
                         onChange={this.props.onChange}
                         onSubmit={this.props.onSubmit}
-                        text={this.props.text}
+                        answerText={this.props.answerText}
                        />
                     : null
                 }

@@ -8,9 +8,9 @@ class EditAnswerView extends Component {
                     <div className="form-group">
                         <label for="answer">You Answer</label>
                         <textarea
-                            name="text" className="form-control"
+                            name="answerText" className="form-control"
                             id="answer" rows="3"
-                            value={this.props.text}
+                            value={this.props.answerText}
                             onChange={this.props.onChange}/>
                     </div>
                     <div>

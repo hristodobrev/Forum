@@ -2,14 +2,15 @@ Tables
     - articles
     - answers
 
-| ================================== |
-|              articles              |
-| ================================== |
-| _id  | title | date_created | user |
+| ========================================= |
+|              articles                     |
+| ========================================= |
+| _id  | title | text | date_created | user |
 
 {
 	"date_created": "5.12.2016",
 	"title": "Second Article!",
+    "text": "Some text"
 	"user": "guest"
 }
 

@@ -10,7 +10,7 @@ class EditAnswerController extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: ''
+            answerText: ''
         };
 
         this.onSubmit = this.onSubmit.bind(this);
@@ -24,9 +24,9 @@ class EditAnswerController extends Component {
         let id = this.props.params.answerId;
         KinveyRequester.get('appdata', 'answers?query={"_id":"' + id + '"}')
             .then(function (data) {
-                console.log(data[0].text);
+
                 _self.setState({
-                    text: data[0].text,
+                    answerText: data[0].answerText,
                     user: data[0].user,
                     date_created: data[0].date_created,
                     article_id: data[0].article_id
@@ -40,29 +40,19 @@ class EditAnswerController extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        // let data = {
-        //     text: this.state.text,
-        //     user: this.state.user,
-        //     date_created: this.state.date_created,
-        //     article_id: this.state.article_id
-        // };
-
-
+        let _self = this;
 
         let data = {
-            text: this.state.text,
+            answerText: this.state.answerText,
             date_created: new Date(),
             user: this.state.user,
             article_id: this.state.article_id
         };
 
-        let _self = this;
-
         KinveyRequester.put('appdata', 'answers/' + this.props.params.answerId, data)
             .then(function (data) {
-                //console.log('Edited successfully');
-                let url = "article/" + data.article_id;
-                _self.context.router.push(url);
+                let url = `/article/${data.article_id}`;
+                _self.context.router.push(url); // Redirect to the articles page
             })
             .catch(function (err) {
                 console.log(err);
@@ -79,7 +69,7 @@ class EditAnswerController extends Component {
     }
 
     render() {
-        return <EditAnswerView onChange={this.onChange} onSubmit={this.onSubmit} text={this.state.text}/>
+        return <EditAnswerView onChange={this.onChange} onSubmit={this.onSubmit} answerText={this.state.answerText}/>
     }
 }
 

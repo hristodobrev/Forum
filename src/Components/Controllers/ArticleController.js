@@ -10,7 +10,7 @@ class ArticleController extends Component {
         this.answerModel = new AnswerModel();
 
         this.state = {
-            articles: []
+            articles: [],
         };
 
         this.getAllArticles();
@@ -22,8 +22,22 @@ class ArticleController extends Component {
         KinveyRequester.get("appdata", "articles")
         .then(function (articlesData) {
             _self.setState({
-                articles: articlesData
+                articles: articlesData.sort((a, b) => {
+                    return (new Date(a.date_created).getTime() < new Date(b.date_created).getTime()) ? 1 : ((new Date(a.date_created).getTime() > new Date(b.date_created).getTime()) ? -1 : 0);
+                })
             });
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+    }
+
+    createArticle() {
+
+        let _self = this;
+        KinveyRequester.post("appdata", "articles")
+        .then(function () {
+
         })
         .catch(function (err) {
             console.log(err);
