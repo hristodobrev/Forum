@@ -22,20 +22,17 @@
 - Article Details View [Checked]
   - Add New Answer Field [Checked]
 
-- Add New Article View
-  - New Article Form
-  - List All Articles Link
-
-  - Post Article Request
+- Add New Article View [Checked]
+  - New Article Form [Checked]
+  - List All Articles Link 
+  - Post Article Request [Checked]
 
 - Delete Article View
   - Confirm Form
-
   - Delete Article Request
 
 - Edit Article View
   - Edit Article Form
-
   - Edit Article Request
 
 
